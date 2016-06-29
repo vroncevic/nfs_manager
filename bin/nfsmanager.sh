@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# @brief   NFS Server Management
+# @brief   NFS Server Manager
 # @version ver.1.0
 # @date    Mon Aug 24 16:22:32 2015
 # @company Frobas IT Department, www.frobas.com 2015
@@ -13,32 +13,33 @@ UTIL_LOG=$UTIL/log
 
 . $UTIL/bin/checkroot.sh
 . $UTIL/bin/checktool.sh
+. $UTIL/bin/checkcfg.sh
 . $UTIL/bin/checkop.sh
 . $UTIL/bin/logging.sh
 . $UTIL/bin/usage.sh
 . $UTIL/bin/devel.sh
 
-TOOL_NAME=nfsmanager
-TOOL_VERSION=ver.1.0
-TOOL_HOME=$UTIL_ROOT/$TOOL_NAME/$TOOL_VERSION
-TOOL_CFG=$TOOL_HOME/conf/$TOOL_NAME.cfg
-TOOL_LOG=$TOOL_HOME/log
+NFSMANAGER_TOOL=nfsmanager
+NFSMANAGER_VERSION=ver.1.0
+NFSMANAGER_HOME=$UTIL_ROOT/$NFSMANAGER_TOOL/$NFSMANAGER_VERSION
+NFSMANAGER_CFG=$NFSMANAGER_HOME/conf/$NFSMANAGER_TOOL.cfg
+NFSMANAGER_LOG=$NFSMANAGER_HOME/log
 
 declare -A NFSMANAGER_USAGE=(
-	[TOOL_NAME]="__$TOOL_NAME"
+	[TOOL_NAME]="__$NFSMANAGER_TOOL"
 	[ARG1]="[OPTION] start | stop | restart | list | version"
 	[EX-PRE]="# Restart Apache Tomcat Server"
-	[EX]="__$TOOL_NAME restart"	
+	[EX]="__$NFSMANAGER_TOOL restart"
 )
 
 declare -A LOG=(
-	[TOOL]="$TOOL_NAME"
+	[TOOL]="$NFSMANAGER_TOOL"
 	[FLAG]="info"
-	[PATH]="$TOOL_LOG"
+	[PATH]="$NFSMANAGER_LOG"
 	[MSG]=""
 )
 
-TOOL_DEBUG="false"
+TOOL_DBG="false"
 
 SYSTEMCTL="/usr/bin/systemctl"
 SHOWMOUNT="/usr/sbin/showmount"
@@ -47,25 +48,36 @@ NFS_OP_LIST=( start stop restart list version )
 
 #
 # @brief  List nfs mounted disks
+# @param  None
 # @retval Success return 0, else return 1
 #
 # @usage
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #
 # __nfslist
-# STATUS=$?
+# local STATUS=$?
 #
 # if [ "$STATUS" -eq "$SUCCESS" ]; then
 #	# true
+#	# notify admin | user
 # else
 #	# false
+#	# return $NOT_SUCCESS
+#	# or
+#	# exit 128
 # fi
 #
 function __nfslist() {
+	local FUNC=${FUNCNAME[0]}
+	local MSG=""
 	__checktool "$SHOWMOUNT"
-	STATUS=$?
+	local STATUS=$?
 	if [ "$STATUS" -eq "$SUCCESS" ]; then
-		eval "showmount -a"
+		if [ "$TOOL_DBG" == "true" ]; then
+			MSG="List NFS disks"
+			printf "$DEND" "$NFSMANAGER_TOOL" "$FUNC" "$MSG"
+		fi
+		eval "$SHOWMOUNT -a"
 		return $SUCCESS
 	fi
     return $NOT_SUCCESS
@@ -73,24 +85,35 @@ function __nfslist() {
 
 #
 # @brief  Get version of nfs server
+# @param  None
 # @retval Success return 0, else return 1
 #
 # @usage
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #
 # __nfsversion
-# STATUS=$?
+# local STATUS=$?
 #
 # if [ "$STATUS" -eq "$SUCCESS" ]; then
 #	# true
+#	# notify admin | user
 # else
 #	# false
+#	# return $NOT_SUCCESS
+#	# or
+#	# exit 128
 # fi
 #
 function __nfsversion() {
+	local FUNC=${FUNCNAME[0]}
+	local MSG=""
 	__checktool "$NFSSTAT"
-	STATUS=$?
+	local STATUS=$?
 	if [ "$STATUS" -eq "$SUCCESS" ]; then
+		if [ "$TOOL_DBG" == "true" ]; then
+			MSG="Version of NFS server"
+			printf "$DEND" "$NFSMANAGER_TOOL" "$FUNC" "$MSG"
+		fi
 		eval "$NFSSTAT –s"
 		return $SUCCESS
 	fi
@@ -106,19 +129,25 @@ function __nfsversion() {
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #
 # __nfsoperation "$OPERATION"
-# STATUS=$?
+# local STATUS=$?
 #
 # if [ "$STATUS" -eq "$SUCCESS" ]; then
 #	# true
+#	# notify admin | user
 # else
 #	# false
+#	# return $NOT_SUCCESS
+#	# or
+#	# exit 128
 # fi
 #
 function __nfsoperation() {
-    OPERATION=$1
+    local OPERATION=$1
     if [ -n "$OPERATION" ]; then
-		__checktool "$SYSTEMCTL"	
-		STATUS=$?
+		local FUNC=${FUNCNAME[0]}
+		local MSG=""
+		__checktool "$SYSTEMCTL"
+		local STATUS=$?
 		if [ "$STATUS" -eq "$SUCCESS" ]; then
 			if [ "$OPERATION" == "list" ]; then
 	        	__nfslist
@@ -128,6 +157,10 @@ function __nfsoperation() {
 				__nfsversion
 				return $SUCCESS
 			fi
+			if [ "$TOOL_DBG" == "true" ]; then
+            	MSG="nfs service [$OPERATION]"
+            	printf "$DEND" "$NFSMANAGER_TOOL" "$FUNC" "$MSG"
+            fi
 		    eval "$SYSTEMCTL $OPERATION nfs.service"
 		    return $SUCCESS
 		fi
@@ -139,31 +172,30 @@ function __nfsoperation() {
 #
 # @brief Main function 
 # @param Value required operation to be done
+# @exitval Function __nfsmanger exit with integer value
+#			0   - success operation 
+#			128 - missing argument
+#			129 - wrong argument
 #
 # @usage
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #
-# __nfsmanager "$OPERATION"
+# local OPERATION="start"
+# __nfsmanager $OPERATION
 #
 function __nfsmanager() {
-    OPERATION=$1
+    local OPERATION=$1
     if [ -n $OPERATION ]; then
-		if [ "$TOOL_DEBUG" == "true" ]; then
-			printf "%s\n" "[NFS Server Manager]"
-		fi
+		local FUNC=${FUNCNAME[0]}
+		local MSG=""
         __checkop "$OPERATION" "${NFS_OP_LIST[*]}"
-        STATUS=$?
+        local STATUS=$?
         if [ "$STATUS" -eq "$SUCCESS" ]; then
-			LOG[MSG]="$OPERATION NFS Server"
-            if [ "$TOOL_DEBUG" == "true" ]; then
-            	printf "%s\n" "[Info] ${LOG[MSG]}"
+            __nfsoperation $OPERATION
+            if [ "$TOOL_DBG" == "true" ]; then
+            	printf "$DEND" "$NFSMANAGER_TOOL" "$FUNC" "Done"
             fi
-            __nfsoperation "$OPERATION"
-			__logging $LOG
-            if [ "$TOOL_DEBUG" == "true" ]; then
-            	printf "%s\n\n" "[Done]"
-            fi
-			exit 0
+            exit 0
         fi
         exit 129
     fi 
@@ -174,18 +206,19 @@ function __nfsmanager() {
 #
 # @brief   Main entry point
 # @param   Value required operation to be done
-# @exitval Script tool atmanger exit with integer value
+# @exitval Script tool nfsmanger exit with integer value
 #			0   - success operation 
 # 			127 - run as root user
 #			128 - missing argument
-#			129 - wrong argument (operation)
+#			129 - wrong argument
 #
-printf "\n%s\n%s\n\n" "$TOOL_NAME $TOOL_VERSION" "`date`"
+printf "\n%s\n%s\n\n" "$NFSMANAGER_TOOL $NFSMANAGER_VERSION" "`date`"
 __checkroot
 STATUS=$?
 if [ "$STATUS" -eq "$SUCCESS" ]; then
-	__nfsmanager "$1"
+	set -u
+	OPERATION=${1:-}
+	__nfsmanager "$OPERATION"
 fi
 
 exit 127
-
