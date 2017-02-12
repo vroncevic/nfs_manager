@@ -20,7 +20,7 @@ DEPENDENCIES
 
 This tool requires these other modules and libraries:
 
-	sh-util https://github.com/vroncevic/sh-util
+	sh_util https://github.com/vroncevic/sh_util
 
 COPYRIGHT AND LICENCE
 
