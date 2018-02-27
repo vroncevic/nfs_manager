@@ -1,35 +1,32 @@
-NFS server management (Bash scripts).
-================================================================================
+# NFS server management (Bash scripts).
 
 The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
 other information that should be provided before the tool is installed.
 
-INSTALLATION
+### INSTALLATION
 
 To install this tool type the following:
 
-	cp -R ~/nfsmanager/bin/   /root/scripts/nfsmanager/ver.1.0/
+```
+cp -R ~/nfs_manager/bin/   /root/scripts/nfs_manager/ver.1.0/
+cp -R ~/nfs_manager/conf/  /root/scripts/nfs_manager/ver.1.0/
+cp -R ~/nfs_manager/log/   /root/scripts/nfs_manager/ver.1.0/
+```
 
-	cp -R ~/nfsmanager/conf/  /root/scripts/nfsmanager/ver.1.0/
-
-	cp -R ~/nfsmanager/log/   /root/scripts/nfsmanager/ver.1.0/
-
-
-DEPENDENCIES
+### DEPENDENCIES
 
 This tool requires these other modules and libraries:
 
-	sh_util https://github.com/vroncevic/sh_util
+	* sh_util https://github.com/vroncevic/sh_util
 
-COPYRIGHT AND LICENCE
+### COPYRIGHT AND LICENCE
 
-Copyright (C) 2016 by https://github.com/vroncevic/nfsmanager
+Copyright (C) 2018 by https://vroncevic.github.io/nfs_manager
 
 This tool is free software; you can redistribute it and/or modify
 it under the same terms as Bash itself, either Bash version 4.2.47 or,
 at your option, any later version of Bash 4 you may have available.
 
-![alt tag](https://raw.githubusercontent.com/vroncevic/nfsmanager/master/bash_logo.png)
-![alt tag](https://raw.githubusercontent.com/vroncevic/nfsmanager/master/linux_logo.jpg)
+:sparkles:
 

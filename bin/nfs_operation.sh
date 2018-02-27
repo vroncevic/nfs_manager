@@ -8,14 +8,14 @@
 #
 
 declare -A NFS_OPERATION_USAGE=(
-	[USAGE_TOOL]="${NFSMANAGER_TOOL}"
-	[USAGE_ARG1]="[OPTION] start | stop | restart | list | version"
-	[USAGE_EX_PRE]="# Restart NFS Server"
-	[USAGE_EX]="${NFSMANAGER_TOOL} restart"
+    [USAGE_TOOL]="${NFS_MANAGER_TOOL}"
+    [USAGE_ARG1]="[OPTION] start | stop | restart | list | version"
+    [USAGE_EX_PRE]="# Restart NFS Server"
+    [USAGE_EX]="${NFS_MANAGER_TOOL} restart"
 )
 
-.	${NFSMANAGER_HOME}/bin/nfs_version.sh
-.	${NFSMANAGER_HOME}/bin/nfs_list.sh
+.    ${NFS_MANAGER_HOME}/bin/nfs_version.sh
+.    ${NFS_MANAGER_HOME}/bin/nfs_list.sh
 
 #
 # @brief  Run operation on nfs service
@@ -29,40 +29,40 @@ declare -A NFS_OPERATION_USAGE=(
 # local STATUS=$?
 #
 # if [ "$STATUS" -eq "$SUCCESS" ]; then
-#	# true
-#	# notify admin | user
+#    # true
+#    # notify admin | user
 # else
-#	# false
-#	# return $NOT_SUCCESS
-#	# or
-#	# exit 128
+#    # false
+#    # return $NOT_SUCCESS
+#    # or
+#    # exit 128
 # fi
 #
-function __nfs_operation() {
-	local OP=$1
-	if [ -n "${OP}" ]; then
-		local FUNC=${FUNCNAME[0]} MSG="None" STATUS
-		MSG="nfs service [$OP]"
-		__info_debug_message "$MSG" "$FUNC" "$NFSMANAGER_TOOL"
-		local SYSCTL=${config_nfsmanager_util[SYSTEMCTL]}
-		__check_tool "${SYSCTL}"
-		STATUS=$?
-		if [ $STATUS -eq $SUCCESS ]; then
-			if [ "${OP}" == "list" ]; then
-				__nfs_list
-			elif [ "${OP}" == "version" ]; then
-				__nfs_version
-			else
-				eval "${SYSCTL} ${OP} nfs.service"
-			fi
-			__info_debug_message_end "Done" "$FUNC" "$NFSMANAGER_TOOL"
-			return $SUCCESS
-		fi
-		MSG="Force exit!"
-		__info_debug_message_end "$MSG" "$FUNC" "$NFSMANAGER_TOOL"
-		return $NOT_SUCCESS
-	fi
-	__usage NFS_OPERATION_USAGE
-	return $NOT_SUCCESS
+function __nfs_operation {
+    local OP=$1
+    if [ -n "${OP}" ]; then
+        local FUNC=${FUNCNAME[0]} MSG="None" STATUS
+        MSG="nfs service [$OP]"
+        info_debug_message "$MSG" "$FUNC" "$NFS_MANAGER_TOOL"
+        local SYSCTL=${config_nfs_manager_util[SYSTEMCTL]}
+        check_tool "${SYSCTL}"
+        STATUS=$?
+        if [ $STATUS -eq $SUCCESS ]; then
+            if [ "${OP}" == "list" ]; then
+                __nfs_list
+            elif [ "${OP}" == "version" ]; then
+                __nfs_version
+            else
+                eval "${SYSCTL} ${OP} nfs.service"
+            fi
+            info_debug_message_end "Done" "$FUNC" "$NFS_MANAGER_TOOL"
+            return $SUCCESS
+        fi
+        MSG="Force exit!"
+        info_debug_message_end "$MSG" "$FUNC" "$NFS_MANAGER_TOOL"
+        return $NOT_SUCCESS
+    fi
+    usage NFS_OPERATION_USAGE
+    return $NOT_SUCCESS
 }
 
