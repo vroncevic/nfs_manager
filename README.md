@@ -1,8 +1,8 @@
 # NFS server management.
 
-nfs_manager is shell tool for control/operating NFS Server.
+***nfs_manager*** is shell tool for controlling/operating NFS Server.
 
-Developed in bash code: 100%.
+Developed in bash code: ***100%***.
 
 The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
@@ -10,6 +10,17 @@ other information that should be provided before the tool is installed.
 
 [![GitHub issues open](https://img.shields.io/github/issues/vroncevic/nfs_manager.svg)](https://github.com/vroncevic/nfs_manager/issues)
  [![GitHub contributors](https://img.shields.io/github/contributors/vroncevic/nfs_manager.svg)](https://github.com/vroncevic/nfs_manager/graphs/contributors)
+
+<!-- START doctoc -->
+**Table of Contents**
+
+- [Installation](https://github.com/vroncevic/nfs_manager#installation)
+- [Usage](https://github.com/vroncevic/nfs_manager#usage)
+- [Dependencies](https://github.com/vroncevic/nfs_manager#dependencies)
+- [Shell tool structure](https://github.com/vroncevic/nfs_manager#shell-tool-structure)
+- [Docs](https://github.com/vroncevic/nfs_manager#docs)
+- [Copyright and Licence](https://github.com/vroncevic/nfs_manager#copyright-and-licence)
+<!-- END doctoc -->
 
 ### INSTALLATION
 
@@ -25,9 +36,9 @@ cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.1.0/
 cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.1.0/
 ```
 
-Or You can use docker to create image/container.
+![alt tag](https://raw.githubusercontent.com/vroncevic/nfs_manager/dev/docs/setup_tree.png)
 
-:sparkles:
+Or You can use docker to create image/container.
 
 ### USAGE
 
@@ -50,7 +61,7 @@ This tool requires these other modules and libraries:
 
 ### SHELL TOOL STRUCTURE
 
-nfs_manager is based on MOP.
+***nfs_manager*** is based on MOP.
 
 Shell tool structure:
 ```
@@ -75,8 +86,6 @@ More documentation and info at:
 
 * https://nfs_manager.readthedocs.io/en/latest/
 
-:sparkles:
-
 ### COPYRIGHT AND LICENCE
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -86,6 +95,4 @@ Copyright (C) 2018 by https://vroncevic.github.io/nfs_manager
 This tool is free software; you can redistribute it and/or modify
 it under the same terms as Bash itself, either Bash version 4.2.47 or,
 at your option, any later version of Bash 4 you may have available.
-
-:sparkles:
 
