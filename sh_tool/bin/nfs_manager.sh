@@ -30,11 +30,11 @@ NFS_MANAGER_LOG=${NFS_MANAGER_HOME}/log
 
 .    ${NFS_MANAGER_HOME}/bin/nfs_operation.sh
 
-declare -A NFS_MANAGER_USAGE=(
-    [USAGE_TOOL]="${NFS_MANAGER_TOOL}"
-    [USAGE_ARG1]="[OPTION] start | stop | restart | list | version"
-    [USAGE_EX_PRE]="# Restart Apache Tomcat Server"
-    [USAGE_EX]="${NFS_MANAGER_TOOL} restart"
+declare -A NFS_MANAGER_Usage=(
+    [Usage_TOOL]="${NFS_MANAGER_TOOL}"
+    [Usage_ARG1]="[OPTION] start | stop | restart | list | version"
+    [Usage_EX_PRE]="# Restart Apache Tomcat Server"
+    [Usage_EX]="${NFS_MANAGER_TOOL} restart"
 )
 
 declare -A NFS_MANAGER_LOGGING=(
@@ -111,7 +111,7 @@ function __nfsmanager {
         info_debug_message_end "$MSG" "$FUNC" "$NFS_MANAGER_TOOL"
         exit 130
     fi
-    usage NFS_MANAGER_USAGE
+    usage NFS_MANAGER_Usage
     exit 128
 }
 
