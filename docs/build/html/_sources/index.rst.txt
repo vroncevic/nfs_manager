@@ -58,7 +58,8 @@ Dependencies
 -------------
 
 **nfs_manager** requires next modules and libraries:
-    sh_util `https://github.com/vroncevic/sh_util <https://github.com/vroncevic/sh_util>`_
+
+* sh_util `https://github.com/vroncevic/sh_util <https://github.com/vroncevic/sh_util>`_
 
 Shell tool structure
 ---------------------
@@ -98,3 +99,21 @@ Copyright (C) 2016 by `vroncevic.github.io/nfs_manager <https://vroncevic.github
 under the same terms as Bash itself, either Bash version 4.2.47 or,
 at your option, any later version of Bash 4 you may have available.
 
+Lets help and support FSF.
+
+|Free Software Foundation|
+
+.. |Free Software Foundation| image:: https://raw.githubusercontent.com/vroncevic/nfs_manager/dev/docs/fsf-logo_1.png
+   :target: https://my.fsf.org/
+
+|Donate|
+
+.. |Donate| image:: https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif
+   :target: https://my.fsf.org/donate/
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
