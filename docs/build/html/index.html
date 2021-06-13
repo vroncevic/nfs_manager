@@ -163,11 +163,11 @@ other information that should be provided before the tool is installed.</p>
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>Navigate to release <a class="reference external" href="https://github.com/vroncevic/nfs_manager/releases">page</a> download and extract release archive.</p>
 <p>To install <strong>nfs_manager</strong> type the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf nfs_manager-x.y.z.tar.gz
-<span class="nb">cd</span> nfs_manager-x.y.z
-cp -R ~/sh_tool/bin/   /root/scripts/nfs_manager/ver.1.0/
-cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.1.0/
-cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.1.0/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf nfs_manager-x.y.tar.gz
+<span class="nb">cd</span> nfs_manager-x.y
+cp -R ~/sh_tool/bin/   /root/scripts/nfs_manager/ver.x.y/
+cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.x.y/
+cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.x.y/
 </pre></div>
 </div>
 <p>Or You can use Docker to create image/container.</p>
@@ -184,7 +184,7 @@ cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.1.0/
 <h1>Shell tool structure<a class="headerlink" href="#shell-tool-structure" title="Permalink to this headline">¶</a></h1>
 <p><strong>nfs_manager</strong> is based on MOP.</p>
 <p>Code structure:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh_tool/
 ├── bin/
 │   ├── nfs_list.sh
 │   ├── nfs_manager.sh
@@ -230,7 +230,7 @@ at your option, any later version of Bash 4 you may have available.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, Vladimir Roncevic &lt;elektron.ronca@gmail.com&gt;
+        &copy; Copyright 2016, Vladimir Roncevic &lt;elektron.ronca@gmail.com&gt;
 
     </p>
   </div>

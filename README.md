@@ -1,3 +1,5 @@
+<img align="right" src="https://raw.githubusercontent.com/vroncevic/nfs_manager/dev/docs/nfs_manager_logo.png" width="25%">
+
 # NFS server management
 
 **nfs_manager** is shell tool for controlling/operating NFS Server.
@@ -32,11 +34,11 @@ Navigate to release **[page](https://github.com/vroncevic/nfs_manager/releases)*
 To install **nfs_manager** type the following:
 
 ```
-tar xvzf nfs_manager-x.y.z.tar.gz
-cd nfs_manager-x.y.z
-cp -R ~/sh_tool/bin/   /root/scripts/nfs_manager/ver.1.0/
-cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.1.0/
-cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.1.0/
+tar xvzf nfs_manager-x.y.tar.gz
+cd nfs_manager-x.y
+cp -R ~/sh_tool/bin/   /root/scripts/nfs_manager/ver.x.y/
+cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.x.y/
+cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.x.y/
 ```
 
 ![alt tag](https://raw.githubusercontent.com/vroncevic/nfs_manager/dev/docs/setup_tree.png)
@@ -49,7 +51,7 @@ Or You can use docker to create image/container.
 
 ```
 # Create symlink for shell tool
-ln -s /root/scripts/nfs_manager/ver.1.0/bin/nfs_manager.sh /root/bin/nfs_manager
+ln -s /root/scripts/nfs_manager/ver.x.y/bin/nfs_manager.sh /root/bin/nfs_manager
 
 # Setting PATH
 export PATH=${PATH}:/root/bin/
@@ -61,7 +63,7 @@ nfs_manager version
 ### Dependencies
 
 **nfs_manager** requires next modules and libraries:
-* sh_util [https://github.com/vroncevic/sh_util](https://github.com/vroncevic/sh_util)
+* nfs_manager [https://github.com/vroncevic/nfs_manager](https://github.com/vroncevic/nfs_manager)
 
 ### Shell tool structure
 
@@ -69,7 +71,7 @@ nfs_manager version
 
 Code structure:
 ```
-.
+sh_tool/
 ├── bin/
 │   ├── nfs_list.sh
 │   ├── nfs_manager.sh
