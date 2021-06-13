@@ -41,11 +41,11 @@ To install **nfs_manager** type the following:
 
 .. code-block:: bash
 
-   tar xvzf nfs_manager-x.y.z.tar.gz
-   cd nfs_manager-x.y.z
-   cp -R ~/sh_tool/bin/   /root/scripts/nfs_manager/ver.1.0/
-   cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.1.0/
-   cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.1.0/
+   tar xvzf nfs_manager-x.y.tar.gz
+   cd nfs_manager-x.y
+   cp -R ~/sh_tool/bin/   /root/scripts/nfs_manager/ver.x.y/
+   cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.x.y/
+   cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.x.y/
 
 Or You can use Docker to create image/container.
 
@@ -70,7 +70,7 @@ Code structure:
 
 .. code-block:: bash
 
-   .
+   sh_tool/
    ├── bin/
    │   ├── nfs_list.sh
    │   ├── nfs_manager.sh
