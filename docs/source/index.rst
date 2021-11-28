@@ -33,11 +33,16 @@ other information that should be provided before the tool is installed.
 Installation
 -------------
 
+|Debian Linux OS|
+
+.. |Debian Linux OS| image:: https://raw.githubusercontent.com/vroncevic/nfs_manager/dev/docs/debtux.png
+   :target: https://www.debian.org
+
 Navigate to release `page`_ download and extract release archive.
 
 .. _page: https://github.com/vroncevic/nfs_manager/releases
 
-To install **nfs_manager** type the following:
+To install **nfs_manager** type the following
 
 .. code-block:: bash
 
@@ -57,7 +62,7 @@ Or You can use Docker to create image/container.
 Dependencies
 -------------
 
-**nfs_manager** requires next modules and libraries:
+**nfs_manager** requires next modules and libraries
 
 * sh_util `https://github.com/vroncevic/sh_util <https://github.com/vroncevic/sh_util>`_
 
@@ -66,18 +71,21 @@ Shell tool structure
 
 **nfs_manager** is based on MOP.
 
-Code structure:
+Shell tool structure
 
 .. code-block:: bash
 
    sh_tool/
    ├── bin/
+   │   ├── center.sh
+   │   ├── display_logo.sh
    │   ├── nfs_list.sh
    │   ├── nfs_manager.sh
    │   ├── nfs_operation.sh
    │   └── nfs_version.sh
    ├── conf/
    │   ├── nfs_manager.cfg
+   │   ├── nfs_manager.logo
    │   └── nfs_manager_util.cfg
    └── log/
        └── nfs_manager.log

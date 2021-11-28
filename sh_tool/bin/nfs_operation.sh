@@ -1,17 +1,17 @@
 #!/bin/bash
 #
-# @brief   Run operation on nfs service
-# @version ver.1.0.0
-# @date    Mon Aug 24 16:22:32 2015
-# @company Frobas IT Department, www.frobas.com 2015
-# @author  Vladimir Roncevic <vladimir.roncevic@frobas.com>
+# @brief   NFS Manager
+# @version ver.2.0
+# @date    Sun 28 Nov 2021 09:09:28 AM CET
+# @company None, free software to use 2021
+# @author  Vladimir Roncevic <elektron.ronca@gmail.com>
 #
 
-declare -A NFS_OPERATION_Usage=(
-    [Usage_TOOL]="${NFS_MANAGER_TOOL}"
-    [Usage_ARG1]="[OPTION] start | stop | restart | list | version"
-    [Usage_EX_PRE]="# Restart NFS Server"
-    [Usage_EX]="${NFS_MANAGER_TOOL} restart"
+declare -A NFS_OPERATION_USAGE=(
+    [USAGE_TOOL]="${NFS_MANAGER_TOOL}"
+    [USAGE_ARG1]="[OPTION] start | stop | restart | list | version"
+    [USAGE_EX_PRE]="# Restart NFS Server"
+    [USAGE_EX]="${NFS_MANAGER_TOOL} restart"
 )
 
 .    ${NFS_MANAGER_HOME}/bin/nfs_version.sh
@@ -62,7 +62,7 @@ function __nfs_operation {
         info_debug_message_end "$MSG" "$FUNC" "$NFS_MANAGER_TOOL"
         return $NOT_SUCCESS
     fi
-    usage NFS_OPERATION_Usage
+    usage NFS_OPERATION_USAGE
     return $NOT_SUCCESS
 }
 

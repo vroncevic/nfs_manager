@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# @brief   NFS Server Manager (wrapper)
-# @version ver.1.0.0
-# @date    Mon Aug 24 16:22:32 2015
-# @company Frobas IT Department, www.frobas.com 2015
-# @author  Vladimir Roncevic <vladimir.roncevic@frobas.com>
+# @brief   NFS Manager
+# @version ver.2.0
+# @date    Sun 28 Nov 2021 09:09:28 AM CET
+# @company None, free software to use 2021
+# @author  Vladimir Roncevic <elektron.ronca@gmail.com>
 #
 UTIL_ROOT=/root/scripts
 UTIL_VERSION=ver.1.0
@@ -22,19 +22,25 @@ UTIL_LOG=${UTIL}/log
 .    ${UTIL}/bin/progress_bar.sh
 
 NFS_MANAGER_TOOL=nfs_manager
-NFS_MANAGER_VERSION=ver.1.0
+NFS_MANAGER_VERSION=ver.2.0
 NFS_MANAGER_HOME=${UTIL_ROOT}/${NFS_MANAGER_TOOL}/${NFS_MANAGER_VERSION}
 NFS_MANAGER_CFG=${NFS_MANAGER_HOME}/conf/${NFS_MANAGER_TOOL}.cfg
 NFS_MANAGER_UTIL_CFG=${NFS_MANAGER_HOME}/conf/${NFS_MANAGER_TOOL}_util.cfg
+NFS_MANAGER_LOGO=${NFS_MANAGER_HOME}/conf/${NFS_MANAGER_TOOL}.logo
 NFS_MANAGER_LOG=${NFS_MANAGER_HOME}/log
 
+tabs 4
+CONSOLE_WIDTH=$(stty size | awk '{print $2}')
+
+.    ${NFS_MANAGER_HOME}/bin/center.sh
+.    ${NFS_MANAGER_HOME}/bin/display_logo.sh
 .    ${NFS_MANAGER_HOME}/bin/nfs_operation.sh
 
-declare -A NFS_MANAGER_Usage=(
-    [Usage_TOOL]="${NFS_MANAGER_TOOL}"
-    [Usage_ARG1]="[OPTION] start | stop | restart | list | version"
-    [Usage_EX_PRE]="# Restart Apache Tomcat Server"
-    [Usage_EX]="${NFS_MANAGER_TOOL} restart"
+declare -A NFS_MANAGER_USAGE=(
+    [USAGE_TOOL]="${NFS_MANAGER_TOOL}"
+    [USAGE_ARG1]="[OPTION] start | stop | restart | list | version"
+    [USAGE_EX_PRE]="# Restart Apache Tomcat Server"
+    [USAGE_EX]="${NFS_MANAGER_TOOL} restart"
 )
 
 declare -A NFS_MANAGER_LOGGING=(
@@ -71,6 +77,7 @@ TOOL_NOTIFY="false"
 #
 function __nfsmanager {
     local OP=$1
+    display_logo
     if [ -n "${OP}" ]; then
         local FUNC=${FUNCNAME[0]} MSG="None"
         local STATUS_CONF STATUS_CONF_UTIL STATUS
@@ -111,7 +118,7 @@ function __nfsmanager {
         info_debug_message_end "$MSG" "$FUNC" "$NFS_MANAGER_TOOL"
         exit 130
     fi
-    usage NFS_MANAGER_Usage
+    usage NFS_MANAGER_USAGE
     exit 128
 }
 
@@ -133,4 +140,3 @@ if [ $STATUS -eq $SUCCESS ]; then
 fi
 
 exit 127
-

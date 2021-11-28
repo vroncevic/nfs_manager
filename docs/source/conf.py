@@ -3,7 +3,7 @@
 project = u'nfs_manager'
 copyright = u'2016, Vladimir Roncevic <elektron.ronca@gmail.com>'
 author = u'Vladimir Roncevic <elektron.ronca@gmail.com>'
-version = u''
+version = u'2.0'
 release = u'https://github.com/vroncevic/nfs_manager/releases'
 extensions = []
 templates_path = ['_templates']
