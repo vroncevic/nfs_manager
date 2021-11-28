@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# @brief   Get version of nfs server
-# @version ver.1.0.0
-# @date    Mon Aug 24 16:22:32 2015
-# @company Frobas IT Department, www.frobas.com 2015
-# @author  Vladimir Roncevic <vladimir.roncevic@frobas.com>
+# @brief   NFS Manager
+# @version ver.2.0
+# @date    Sun 28 Nov 2021 09:09:28 AM CET
+# @company None, free software to use 2021
+# @author  Vladimir Roncevic <elektron.ronca@gmail.com>
 #
 
 #

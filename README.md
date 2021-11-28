@@ -29,6 +29,8 @@ other information that should be provided before the tool is installed.
 
 ### Installation
 
+![Debian Linux OS](https://raw.githubusercontent.com/vroncevic/nfs_manager/dev/docs/debtux.png)
+
 Navigate to release **[page](https://github.com/vroncevic/nfs_manager/releases)** download and extract release archive.
 
 To install **nfs_manager** type the following:
@@ -41,7 +43,37 @@ cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.x.y/
 cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.x.y/
 ```
 
-![alt tag](https://raw.githubusercontent.com/vroncevic/nfs_manager/dev/docs/setup_tree.png)
+Self generated setup script and execution
+```
+./nfs_manager_setup.sh
+
+[setup] installing App/Tool/Script nfs_manager
+	Sun 28 Nov 2021 06:19:10 PM CET
+[setup] clean up App/Tool/Script structure
+[setup] copy App/Tool/Script structure
+[setup] remove github editor configuration files
+[setup] set App/Tool/Script permission
+[setup] create symbolic link of App/Tool/Script
+[setup] done
+
+/root/scripts/nfs_manager/ver.2.0/
+├── bin/
+│   ├── center.sh
+│   ├── display_logo.sh
+│   ├── nfs_list.sh
+│   ├── nfs_manager.sh
+│   ├── nfs_operation.sh
+│   └── nfs_version.sh
+├── conf/
+│   ├── nfs_manager.cfg
+│   ├── nfs_manager.logo
+│   └── nfs_manager_util.cfg
+└── log/
+    └── nfs_manager.log
+
+3 directories, 10 files
+lrwxrwxrwx 1 root root 52 Nov 28 18:19 /root/bin/nfs_manager -> /root/scripts/nfs_manager/ver.2.0/bin/nfs_manager.sh
+```
 
 Or You can use docker to create image/container.
 
@@ -57,28 +89,56 @@ ln -s /root/scripts/nfs_manager/ver.x.y/bin/nfs_manager.sh /root/bin/nfs_manager
 export PATH=${PATH}:/root/bin/
 
 # Control/operating NFS Server
-nfs_manager version
+nfs_manager
+
+nfs_manager ver.2.0
+Sun 28 Nov 2021 06:24:16 PM CET
+
+[check_root] Check permission for current session? [ok]
+[check_root] Done
+
+	                                                             
+	        __                                                   
+	 _ __  / _|___   _ __ ___   __ _ _ __   __ _  __ _  ___ _ __ 
+	| '_ \| |_/ __| | '_ ` _ \ / _` | '_ \ / _` |/ _` |/ _ \ '__|
+	| | | |  _\__ \ | | | | | | (_| | | | | (_| | (_| |  __/ |   
+	|_| |_|_| |___/ |_| |_| |_|\__,_|_| |_|\__,_|\__, |\___|_|   
+	                                             |___/           
+	                                                             
+		Info   github.io/nfs_manager ver.2.0 
+		Issue  github.io/issue
+		Author vroncevic.github.io
+
+  [Usage] nfs_manager [OPTIONS]
+  [OPTIONS]
+  [OPTION] start | stop | restart | list | version
+  # Restart Apache Tomcat Server
+  nfs_manager restart
+  [help | h] print this option
 ```
 
 ### Dependencies
 
-**nfs_manager** requires next modules and libraries:
-* nfs_manager [https://github.com/vroncevic/nfs_manager](https://github.com/vroncevic/nfs_manager)
+**nfs_manager** requires next modules and libraries
+* sh_util [https://github.com/vroncevic/sh_util](https://github.com/vroncevic/sh_util)
 
 ### Shell tool structure
 
 **nfs_manager** is based on MOP.
 
-Code structure:
+Shell tool structure
 ```
 sh_tool/
 ├── bin/
+│   ├── center.sh
+│   ├── display_logo.sh
 │   ├── nfs_list.sh
 │   ├── nfs_manager.sh
 │   ├── nfs_operation.sh
 │   └── nfs_version.sh
 ├── conf/
 │   ├── nfs_manager.cfg
+│   ├── nfs_manager.logo
 │   └── nfs_manager_util.cfg
 └── log/
     └── nfs_manager.log
@@ -88,7 +148,7 @@ sh_tool/
 
 [![Documentation Status](https://readthedocs.org/projects/nfs_manager/badge/?version=latest)](https://nfs_manager.readthedocs.io/projects/nfs_manager/en/latest/?badge=latest)
 
-More documentation and info at:
+More documentation and info at
 * [https://nfs_manager.readthedocs.io/en/latest/](https://nfs_manager.readthedocs.io/en/latest/)
 * [https://www.gnu.org/software/bash/manual/](https://www.gnu.org/software/bash/manual/)
 
