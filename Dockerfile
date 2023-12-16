@@ -1,4 +1,4 @@
-# Copyright 2018 Vladimir Roncevic <elektron.ronca@gmail.com>
+# Copyright 2016 - 2024 Vladimir Roncevic <elektron.ronca@gmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,8 +26,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
     nfs-kernel-server \
     portmap
 
-RUN wget https://github.com/vroncevic/sh_util/archive/v1.0.zip
-RUN unzip v1.0.zip
+RUN wget https://github.com/vroncevic/sh_util/archive/1.0.zip
+RUN unzip 1.0.zip
 RUN find /sh_util-1.0/ -name "*.editorconfig" -type f -exec rm -Rf {} \;
 RUN mkdir -p /root/scripts/sh_util/ver.1.0/
 RUN cp -R /sh_util-1.0/sh_tool/bin/   /root/scripts/sh_util/ver.1.0/

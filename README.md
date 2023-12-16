@@ -6,7 +6,7 @@
 
 Developed in **[bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell))** code: **100%**.
 
-[![nfs_manager shell checker](https://github.com/vroncevic/nfs_manager/workflows/nfs_manager%20shell%20checker/badge.svg)](https://github.com/vroncevic/nfs_manager/actions?query=workflow%3A%22nfs_manager+shell+checker%22)
+[![nfs_manager_shell_checker](https://github.com/vroncevic/nfs_manager/actions/workflows/nfs_manager_shell_checker.yml/badge.svg)](https://github.com/vroncevic/nfs_manager/actions/workflows/nfs_manager_shell_checker.yml)
 
 The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
@@ -77,8 +77,6 @@ lrwxrwxrwx 1 root root 52 Nov 28 18:19 /root/bin/nfs_manager -> /root/scripts/nf
 
 Or You can use docker to create image/container.
 
-[![nfs_manager docker checker](https://github.com/vroncevic/nfs_manager/workflows/nfs_manager%20docker%20checker/badge.svg)](https://github.com/vroncevic/nfs_manager/actions?query=workflow%3A%22nfs_manager+docker+checker%22)
-
 ### Usage
 
 ```
@@ -97,13 +95,17 @@ Sun 28 Nov 2021 06:24:16 PM CET
 [check_root] Check permission for current session? [ok]
 [check_root] Done
 
-	                                                             
-	        __                                                   
-	 _ __  / _|___   _ __ ___   __ _ _ __   __ _  __ _  ___ _ __ 
-	| '_ \| |_/ __| | '_ ` _ \ / _` | '_ \ / _` |/ _` |/ _ \ '__|
-	| | | |  _\__ \ | | | | | | (_| | | | | (_| | (_| |  __/ |   
-	|_| |_|_| |___/ |_| |_| |_|\__,_|_| |_|\__,_|\__, |\___|_|   
-	                                             |___/           
+                                                                                                  
+              ████                                                                                
+             ░██░                                                                                 
+   ███████  ██████  ██████       ██████████   ██████   ███████   ██████    █████   █████  ██████  
+  ░░██░░░██░░░██░  ██░░░░       ░░██░░██░░██ ░░░░░░██ ░░██░░░██ ░░░░░░██  ██░░░██ ██░░░██░░██░░█  
+   ░██  ░██  ░██  ░░█████        ░██ ░██ ░██  ███████  ░██  ░██  ███████ ░██  ░██░███████ ░██ ░   
+   ░██  ░██  ░██   ░░░░░██       ░██ ░██ ░██ ██░░░░██  ░██  ░██ ██░░░░██ ░░██████░██░░░░  ░██     
+   ███  ░██  ░██   ██████  █████ ███ ░██ ░██░░████████ ███  ░██░░████████ ░░░░░██░░██████░███     
+  ░░░   ░░   ░░   ░░░░░░  ░░░░░ ░░░  ░░  ░░  ░░░░░░░░ ░░░   ░░  ░░░░░░░░   █████  ░░░░░░ ░░░      
+                                                                          ░░░░░                   
+                                                                                                  
 	                                                             
 		Info   github.io/nfs_manager ver.2.0 
 		Issue  github.io/issue
@@ -146,17 +148,17 @@ sh_tool/
 
 ### Docs
 
-[![Documentation Status](https://readthedocs.org/projects/nfs_manager/badge/?version=latest)](https://nfs_manager.readthedocs.io/projects/nfs_manager/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/nfs_manager/badge/?version=latest)](https://nfs-manager.readthedocs.io/projects/nfs_manager/en/latest/?badge=latest)
 
 More documentation and info at
-* [https://nfs_manager.readthedocs.io/en/latest/](https://nfs_manager.readthedocs.io/en/latest/)
+* [https://nfs_manager.readthedocs.io/en/latest/](https://nfs-manager.readthedocs.io/en/latest/)
 * [https://www.gnu.org/software/bash/manual/](https://www.gnu.org/software/bash/manual/)
 
 ### Copyright and licence
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Copyright (C) 2016 by [vroncevic.github.io/nfs_manager](https://vroncevic.github.io/nfs_manager)
+Copyright (C) 2016 - 2024 by [vroncevic.github.io/nfs_manager](https://vroncevic.github.io/nfs_manager)
 
 **nfs_manager** is free software; you can redistribute it and/or modify
 it under the same terms as Bash itself, either Bash version 4.2.47 or,
