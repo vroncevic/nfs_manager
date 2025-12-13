@@ -36,11 +36,11 @@ Navigate to release **[page](https://github.com/vroncevic/nfs_manager/releases)*
 To install **nfs_manager** type the following:
 
 ```bash
-tar xvzf nfs_manager-x.y.tar.gz
-cd nfs_manager-x.y
-cp -R ~/sh_tool/bin/   /root/scripts/nfs_manager/ver.x.y/
-cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.x.y/
-cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.x.y/
+tar xvzf nfs_manager-3.0.tar.gz
+cd nfs_manager-3.0
+cp -R ~/sh_tool/bin/   /root/scripts/nfs_manager/ver.3.0/
+cp -R ~/sh_tool/conf/  /root/scripts/nfs_manager/ver.3.0/
+cp -R ~/sh_tool/log/   /root/scripts/nfs_manager/ver.3.0/
 ```
 
 Self generated setup script and execution
@@ -49,7 +49,7 @@ Self generated setup script and execution
 ./nfs_manager_setup.sh
 
 [setup] installing App/Tool/Script nfs_manager
-	Sun 28 Nov 2021 06:19:10 PM CET
+	Sat Dec 13 07:28:59 PM CET 2025
 [setup] clean up App/Tool/Script structure
 [setup] copy App/Tool/Script structure
 [setup] remove github editor configuration files
@@ -57,14 +57,9 @@ Self generated setup script and execution
 [setup] create symbolic link of App/Tool/Script
 [setup] done
 
-/root/scripts/nfs_manager/ver.2.0/
+/root/scripts/nfs_manager/ver.3.0/
 ├── bin/
-│   ├── center.sh
-│   ├── display_logo.sh
-│   ├── nfs_list.sh
 │   ├── nfs_manager.sh
-│   ├── nfs_operation.sh
-│   └── nfs_version.sh
 ├── conf/
 │   ├── nfs_manager.cfg
 │   ├── nfs_manager.logo
@@ -72,8 +67,8 @@ Self generated setup script and execution
 └── log/
     └── nfs_manager.log
 
-3 directories, 10 files
-lrwxrwxrwx 1 root root 52 Nov 28 18:19 /root/bin/nfs_manager -> /root/scripts/nfs_manager/ver.2.0/bin/nfs_manager.sh
+3 directories, 5 files
+lrwxrwxrwx 1 root root 52 Dec 13 07:28 /root/bin/nfs_manager -> /root/scripts/nfs_manager/ver.3.0/bin/nfs_manager.sh
 ```
 
 Or You can use docker to create image/container.
@@ -82,7 +77,7 @@ Or You can use docker to create image/container.
 
 ```bash
 # Create symlink for shell tool
-ln -s /root/scripts/nfs_manager/ver.x.y/bin/nfs_manager.sh /root/bin/nfs_manager
+ln -s /root/scripts/nfs_manager/ver.3.0/bin/nfs_manager.sh /root/bin/nfs_manager
 
 # Setting PATH
 export PATH=${PATH}:/root/bin/
@@ -90,8 +85,8 @@ export PATH=${PATH}:/root/bin/
 # Control/operating NFS Server
 nfs_manager
 
-nfs_manager ver.2.0
-Sun 28 Nov 2021 06:24:16 PM CET
+nfs_manager ver.3.0
+Sat Dec 13 07:28:59 PM CET 2025
 
 [check_root] Check permission for current session? [ok]
 [check_root] Done
@@ -108,14 +103,14 @@ Sun 28 Nov 2021 06:24:16 PM CET
                                                                           ░░░░░                   
                                                                                                   
 	                                                             
-		Info   github.io/nfs_manager ver.2.0 
+		Info   github.io/nfs_manager ver.3.0 
 		Issue  github.io/issue
 		Author vroncevic.github.io
 
   [Usage] nfs_manager [OPTIONS]
   [OPTIONS]
   [OPTION] start | stop | restart | list | version
-  # Restart Apache Tomcat Server
+  # Restart NFS Server
   nfs_manager restart
   [help | h] print this option
 ```
@@ -134,12 +129,7 @@ Shell tool structure
 ```bash
 sh_tool/
 ├── bin/
-│   ├── center.sh
-│   ├── display_logo.sh
-│   ├── nfs_list.sh
 │   ├── nfs_manager.sh
-│   ├── nfs_operation.sh
-│   └── nfs_version.sh
 ├── conf/
 │   ├── nfs_manager.cfg
 │   ├── nfs_manager.logo
@@ -160,7 +150,7 @@ More documentation and info at
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Copyright (C) 2016 - 2024 by [vroncevic.github.io/nfs_manager](https://vroncevic.github.io/nfs_manager)
+Copyright (C) 2016 - 2026 by [vroncevic.github.io/nfs_manager](https://vroncevic.github.io/nfs_manager)
 
 **nfs_manager** is free software; you can redistribute it and/or modify
 it under the same terms as Bash itself, either Bash version 4.2.47 or,
